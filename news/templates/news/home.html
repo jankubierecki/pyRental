@@ -1,4 +1,16 @@
 {% extends 'news/base.html' %}
 {% block content %}
-    <h1>News</h1>
-{% endblock %}
+    <h1>Nowości</h1>
+    {% for post in posts %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <h4><a class="article-title" href="#">{{ post.created_at }}</a></h4>
+                    <h2><a class="mr-2" href="#">{{ post.car.brand }} {{ post.car.name }}</a></h2>
+                    <p class="article-content">{{ post.description }}</p>
+
+                </div>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

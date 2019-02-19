@@ -1,4 +1,4 @@
-{%  load static %}
+{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -32,38 +32,33 @@
 
             <div class="collapse navbar-collapse" id="navbarToggle">
                 <div class="navbar-nav mr-auto ">
-                    <a class="nav-item nav-link" href="{% url 'news-home' %}">News <span class="sr-only">(current)</span></a>
                 </div>
                 <!-- Navbar Right Side -->
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="#">Logowanie</a>
-                    <a class="nav-item nav-link" href="#">Rejestracja</a>
-                </div>
+                {% if request.path != '/register/' %}
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="#">Logowanie</a>
+                        <a class="nav-item nav-link" href="#">Rejestracja</a>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </nav>
 </header>
 
 <main role="main" class="container">
-  <div class="row">
-    <div class="col-md-8">
-      {% block content %}{% endblock %}
-    </div>
-    <div class="col-md-4">
-      <div class="content-section">
-        <h3>Menu</h3>
-          <ul class="list-group">
-            <li class="list-group-item list-group-item-light">Najnowsze</li>
-            <li class="list-group-item list-group-item-light">Katalog</li>
-            <li class="list-group-item list-group-item-light">Cennik</li>
-            <li class="list-group-item list-group-item-light">FAQ</li>
-            <li class="list-group-item list-group-item-light">O nas</li>
+    <div class="row">
+        <div class="col-md-8">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% block content %}{% endblock %}
+        </div>
 
-          </ul>
-        </p>
-      </div>
     </div>
-  </div>
 </main>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
