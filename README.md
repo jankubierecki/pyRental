@@ -16,4 +16,5 @@ pyRental is noncomplex django application, in the style of rental office; it inc
 4. ```python manage.py runserver```
 5. ```go to localhost:8000```
 
-
+### Note
+this is not finished project
