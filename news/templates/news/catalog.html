@@ -1,0 +1,32 @@
+{% extends 'news/base.html' %}
+{% load static %}
+{% block content %}
+
+    <div id="products" class="row">
+        {% for car in cars %}
+            <div class="col-sm-4" align="center">
+                <div class="thumbnail">
+                    <img class="group list-group-image col-9" src="{{ car.img.url}}" alt=""/>
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            {{ car.brand }} {{ car.name }}
+                        </h4>
+                        <p class="group inner list-group-item-text col-md-9">
+                            {{ car.description }}
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="lead">{{ car.price }} zł</p>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="btn btn-success" href="http://www.jquery2dotnet.com">Kup Teraz</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
+
+
