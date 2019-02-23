@@ -1,20 +1,20 @@
 {% extends "news/base.html" %}
+{% load static %}
+<script src="{% static 'users/js/profile.js' %}"></script>
 <main role="main" class="container">
-    <div class="row">
-        <div class="col-md-8">
-            {% block content %}
-                <div class="col-md-4">
-                    <div class="content-section">
-                        <h3>Menu</h3>
-                        <ul class="list-group">
-                            <li class="list-group-item list-group-item-dark">Wypożyczone</li>
-                            <li class="list-group-item list-group-item-dark">Stan Konta</li>
-                            <li class="list-group-item list-group-item-dark">Ustawienia</li>
-                        </ul>
-                    </div>
-                </div>
-
-            {% endblock %}
+    {% block content %}
+        <div class="content">
+            <div id="jquery-accordion-menu" class="jquery-accordion-menu">
+                <div class="jquery-accordion-menu-header">Witaj {{ user.user.first_name }}</div>
+                <ul>
+                    <li class="active"><a href="#"><i class="fas fa-car-alt"></i>Katalog</a></li>
+                    <li><a href="#"><i class="far fa-handshake"></i>Wypożyczenia</a></li>
+                    <li><a href="#"><i class="fas fa-credit-card"></i>Stan Konta</a></li>
+                    <li><a href="#"><i class="fas fa-comment"></i>Kontakt</a></li>
+                    <li><a href="#"><i class="fa fa-cog"></i>Ustawienia</a></li>
+                    <li><a href="#"><i class="fas fa-ban"></i>Wyloguj</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
+    {% endblock %}
 </main>
