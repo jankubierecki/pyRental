@@ -1,0 +1,17 @@
+{% extends 'news/base.html' %}
+{% load static %}
+{% block content %}
+    <div id="products" class="row">
+        <div class="col-sm-4" align="center">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        {{ car.brand }} {{ car.name }}
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+

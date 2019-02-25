@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'vehicles.apps.VehiclesConfig',
     'news.apps.NewsConfig',
     'users.apps.UsersConfig',
+    'rentals.apps.RentalsConfig',
     'crispy_forms',
+    'djmoney',
 ]
 
 MIDDLEWARE = [
@@ -122,6 +124,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'news/static/')
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

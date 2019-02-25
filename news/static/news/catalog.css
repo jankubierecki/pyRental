@@ -61,9 +61,20 @@ p.group.inner.list-group-item-text {
 
 .lead {
     padding-top: 10px;
+    font-size: 98%;
+    padding-right: 20px;
 }
 
 .list-group-image {
     width: 420px;
     height: 250px;
+}
+
+.cancel-inherit {
+    color: white;
+
+}
+
+.btn-info {
+    padding-right: inherit;
 }

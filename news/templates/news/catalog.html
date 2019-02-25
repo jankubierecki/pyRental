@@ -5,7 +5,7 @@
         {% for car in cars %}
             <div class="col-sm-4" align="center">
                 <div class="thumbnail">
-                    <img class="group list-group-image col-9" src="{{ car.img.url}}" alt=""/>
+                    <img class="group list-group-image col-9" src="{{ car.img.url }}" alt=""/>
                     <div class="caption">
                         <h4 class="group inner list-group-item-heading">
                             {{ car.brand }} {{ car.name }}
@@ -15,10 +15,15 @@
                         </p>
                         <div class="row">
                             <div class="col-md-6">
-                                <p class="lead">{{ car.price }} zł</p>
+                                <p class="lead">{{ car.price }}</p>
                             </div>
-                            <div class="col-md-6">
-                                <a class="btn btn-success" href="http://www.jquery2dotnet.com">Wypożycz</a>
+                            <div class="cancel-inherit">
+                                <div class="col-md-1">
+                                    <a class="no-change btn btn-info" href="{% url 'car-detail' car.id %}">Info</a>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <a class="btn btn-success" href="{% url 'rental-create' car.pk %}">Zamawiam</a>
                             </div>
                         </div>
                     </div>

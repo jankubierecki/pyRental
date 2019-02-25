@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView
 
 from news.models import Post
 from vehicles.models import Car
@@ -12,9 +13,14 @@ def home(request):
     return render(request, 'news/home.html', context)
 
 
-def catalog(request):
-    context = {
-        'cars': Car.objects.all().order_by('-name'),
-        'title': 'Oferta'
-    }
-    return render(request, 'news/catalog.html', context)
+class CatalogListView(ListView):
+    model = Car
+    template_name = 'news/catalog.html'
+    context_object_name = 'cars'
+    ordering = ['name']
+
+
+class CarDetailView(DetailView):
+    model = Car
+    template_name = 'news/car_details.html'
+    context_object_name = 'car'

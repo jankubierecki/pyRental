@@ -7,6 +7,6 @@ class Profile(models.Model):
     cash = models.FloatField(default=0)
 
     def __str__(self):
-        return f'{self.user.first_name, self.user.last_name} Profil'
+        return '{0} {1}'.format(self.user.first_name, self.user.last_name)
 
 

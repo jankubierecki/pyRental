@@ -20,6 +20,8 @@
         <link rel="stylesheet" type="text/css" href="{% static 'news/catalog.css' %}">
     {% elif request.path == '/profile/' %}
         <link rel="stylesheet" type="text/css" href="{% static 'users/css/profile.css' %}">
+    {% elif '/rental/' in request.path %}
+        <link rel="stylesheet" type="text/css" href="{% static 'rentals/css/rental.css' %}">
     {% endif %}
 
     <link rel="stylesheet" type="text/css" href="{% static 'news/main.css' %}">
