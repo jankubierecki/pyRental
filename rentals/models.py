@@ -1,5 +1,4 @@
 import datetime
-
 from django.contrib.auth.models import User
 from django.db import models
 from users.models import Profile
@@ -19,8 +18,15 @@ class Rental(models.Model):
                                         self.car.name)
 
     @property
-    def price(self):
+    def cost(self):
         return self.car.price
+
+    def save(self, *args, **kwargs):
+        self.profile.cash -= self.cost
+        self.profile.save()
+
+        super(Rental, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name = 'Zamówienie'
+        verbose_name_plural = 'Zamówienia'

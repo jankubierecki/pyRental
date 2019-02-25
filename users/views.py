@@ -1,10 +1,21 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
+from rest_framework import generics
 
 from users.models import Profile
+from users.serializers import UserSerializer
 from .forms import UserRegisterForm
+
+
+class UserList(generics.ListAPIView):
+    queryset = Profile.objects.all()
+    serializer_class = UserSerializer
+
+
+class UserDetail(generics.RetrieveAPIView):
+    queryset = Profile.objects.all()
+    serializer_class = UserSerializer
 
 
 def register(request):

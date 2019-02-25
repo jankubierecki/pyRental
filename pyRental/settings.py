@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rentals.apps.RentalsConfig',
     'crispy_forms',
     'djmoney',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

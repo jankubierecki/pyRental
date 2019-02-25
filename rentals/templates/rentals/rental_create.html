@@ -1,5 +1,6 @@
 {% extends "news/base.html" %}
 {% load crispy_forms_tags %}
+
 {% block content %}
     <div class="row">
         <div class="col-sm-4"></div>
@@ -8,9 +9,14 @@
                 <form method="POST">
                     {% csrf_token %}
                     <fieldset class="form-group">
-                        <a href="{% url 'car-detail' car.id %}"><h4 class="group inner list-group-item-heading">
-                            <p class="text-primary">{{ car.brand }} {{ car.name }} </p>
-                        </h4></a>
+                        <a href="{% url 'car-detail' car.id %}">
+                            <h4 class="group inner list-group-item-heading">
+                                <p class="text-primary">{{ car.brand }} {{ car.name }} </p>
+                                <div class="alert-danger">
+                                {{ form.non_field_errors }}
+                                </div>
+                            </h4>
+                        </a>
                         <div class="row">
                             <div class="col-6">
                                 {{ form.start_date|as_crispy_field }}
@@ -20,14 +26,14 @@
                             </div>
                         </div>
 
-                            {{ form.additional_info|as_crispy_field }}
+                        {{ form.additional_info|as_crispy_field }}
 
                     </fieldset>
                     <div class="row">
-                        <div class="col-1">
+                        <div class="col-2">
                             <button class="btn btn btn-success" type="submit">Zamawiam</button>
                         </div>
-                        <div class="col-11">
+                        <div class="col-10">
                             <p class="lead text-secondary">{{ car.price }}</p>
                         </div>
                     </div>
