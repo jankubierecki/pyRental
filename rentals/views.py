@@ -32,6 +32,9 @@ class RentalListAPI(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save(profile=self.request.user.profile)
 
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly,)
+
 
 class RentalDetailAPI(generics.RetrieveUpdateDestroyAPIView):
     queryset = Rental.objects.all()

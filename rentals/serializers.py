@@ -4,7 +4,7 @@ from rentals.models import Rental
 
 
 class RentalSerializer(serializers.ModelSerializer):
-    profile = serializers.ReadOnlyField(source='profile.user.username')
+    profile = serializers.ReadOnlyField(source='profile.user.id')
 
     class Meta:
         model = Rental
